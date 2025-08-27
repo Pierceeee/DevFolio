@@ -1,6 +1,10 @@
 node_modules
-dist
+.env
+.env.local
 .DS_Store
+# Don't ignore the build directory (comment out if it's there)
+# build
+dist
 server/public
 vite.config.ts.*
 *.tar.gz
