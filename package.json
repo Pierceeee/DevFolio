@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "react-scripts build",
+    "build": "node build.js",
     "start": "vite preview --port 5000",
     "check": "tsc"
   },
