@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(240, 100%, 4%);
+  --foreground: hsl(215, 20%, 65%);
+  --card: hsl(222, 84%, 10%);
+  --card-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(222, 84%, 10%);
+  --popover-foreground: hsl(215, 20%, 65%);
+  --primary: hsl(222, 84%, 10%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(166, 100%, 70%);
+  --secondary-foreground: hsl(222, 84%, 10%);
+  --muted: hsl(222, 84%, 10%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --accent: hsl(213, 31%, 91%);
+  --accent-foreground: hsl(222, 84%, 10%);
+  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(222, 84%, 15%);
+  --input: hsl(222, 84%, 15%);
+  --ring: hsl(166, 100%, 70%);
+  --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
+  --chart-2: hsl(159.7826, 100%, 36.0784%);
+  --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
+  --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
+  --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
+  --sidebar: hsl(222, 84%, 10%);
+  --sidebar-foreground: hsl(215, 20%, 65%);
+  --sidebar-primary: hsl(166, 100%, 70%);
+  --sidebar-primary-foreground: hsl(222, 84%, 10%);
+  --sidebar-accent: hsl(222, 84%, 15%);
+  --sidebar-accent-foreground: hsl(166, 100%, 70%);
+  --sidebar-border: hsl(222, 84%, 15%);
+  --sidebar-ring: hsl(166, 100%, 70%);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', Consolas, monospace;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 100%, 4%);
+  --foreground: hsl(215, 20%, 65%);
+  --card: hsl(222, 84%, 10%);
+  --card-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(222, 84%, 10%);
+  --popover-foreground: hsl(215, 20%, 65%);
+  --primary: hsl(222, 84%, 10%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(166, 100%, 70%);
+  --secondary-foreground: hsl(222, 84%, 10%);
+  --muted: hsl(222, 84%, 10%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --accent: hsl(213, 31%, 91%);
+  --accent-foreground: hsl(222, 84%, 10%);
+  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(222, 84%, 15%);
+  --input: hsl(222, 84%, 15%);
+  --ring: hsl(166, 100%, 70%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(100, 255, 218, 0.1);
+  }
+
+  .skill-tag {
+    background: rgba(100, 255, 218, 0.1);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    color: hsl(166, 100%, 70%);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: hsl(166, 100%, 70%);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .typing-animation {
+    overflow: hidden;
+    border-right: 2px solid hsl(166, 100%, 70%);
+    white-space: nowrap;
+    animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: hsl(166, 100%, 70%) }
+  }
+
+  .mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+}
